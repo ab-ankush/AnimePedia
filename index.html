@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>AnimePedia</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- *  header ----->
+
+      <section>
+        <div class="header">
+          <nav class="navbar">
+            <a href=""><i class="fa-solid fa-house-chimney"></i></a>
+            <div class="nav-links" id="navLinks">
+              <i class="fa fa-solid fa-xmark" onclick="removeMenu()"></i>
+              <ul class="main-links">
+                <li><a href="">HOME</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">List</a></li>
+                <li><a href="">Contact US</a></li>
+              </ul>
+            </div>
+            <i class="fa fa-solid fa-bars" onclick="addMenu()"></i>
+          </nav>
+
+          <div class="main-text">
+            <h1>AnimePedia</h1>
+            <p>
+              <span id="break">World's largest Anime info site </span> for all
+              those anime lovers
+            </p>
+            <a href="#START" class="hero-btn">Go to the main content</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- * My Fav Anime  -->
+      <section class="my-fav" id="START">
+          
+        <h2>My favourite Animes</h2>
+        <div class="row">
+          <a href="#" class="fav-col">
+            <img src="images/Aot poster.jpg" alt="" class="fav-poster">
+            <h3>Attack On Titan</h3>
+            <p>" Shinzou wo sasageyo "</p>
+          </a>
+          <a href="#" class="fav-col">
+            <img src="images/Naruto poster.jpg" alt="" class="fav-poster">
+            <h3>Naruto</h3>
+            <p>" Uzumaki Naruto dattebayo "</p>
+          </a>
+          <a href="#" class="fav-col">
+            <img src="images/haikyuu poster.jpg" alt="" class="fav-poster">
+            <h3>Haikyuu</h3>
+            <p>" Fly High!!! "</p>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- * Wallpapers -->
+      <section class="wallPapers">
+        <h2>Anime Wallpapers</h2>
+        <div class="row-wall">
+          <div class="col-x">
+            <img src="images/Akatsuki wallpaper.jpg" alt="" class="img" />
+            <h3>Naruto</h3>
+          </div>
+          <div class="col">
+            <img src="images/Aot wallpaper.jpg" alt="" class="img">
+            <h3>Attack on Titan</h3>
+          </div>
+          <div class="col">
+            <img src="images/jujutsu kaisen wallpaper.jpg" alt="" class="img">
+            <h3>Jujutsu Kaisen</h3>
+          </div>
+          <div class="col">
+            <img src="images/Assasination classroom wallpaper.png" alt="" class="img">
+            <h3>Assasination Classroom</h3>
+          </div>
+          <div class="col">
+            <img src="images/Tokyo revengers wallpaper.jpg" alt="" class="img">
+            <h3>Tokyo Revengers</h3>
+          </div>
+          <div class="col">
+            <img src="images/demon slayer wallpaper.jpg" alt="" class="img">
+            <h3>Demon Slayer</h3>
+          </div>
+        </div>
+        
+      </section>
+
+      <!--* Footer  -->
+      <footer class="Footer">
+        <h4>About us</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime in quisquam molestiae dolor mollitia ab fugiat ipsa, harum autem molestias odit, ut laudantium veniam,<br> dicta temporibus. In veniam obcaecati cumque!</p>
+        <div class="icons">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-twitch"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+
+        <p>Made by DEATH❄️</p>
+      </footer>
+
+    <!-- ! javascript----->
+    <script>
+      const navBar = document.querySelector(".nav-links");
+      const btn = document.querySelector('.hero-btn');
+
+      function addMenu() {
+        navBar.classList.add("active");
+      }
+      function removeMenu() {
+        navBar.classList.remove("active");
+      }
+
+      // JQuery code for smooth transition
+      jQuery($ => {
+    const speed = 850;
+
+    $('a[href*="#"]')
+      .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', event => {
+        const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          event.preventDefault();
+          $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+        }
+      });
+  });
+      
+    </script>
+  </body>
+</html>
